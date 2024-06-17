@@ -7,7 +7,7 @@ import Card from "../components/Card.astro";
         <h1>MIS PROYECTOS</h1>
         <hr class="linea mt-3">
         <div class="col-12 d-flex m-2 justify-content-center align-items-center w-75">
-            <Card title="cosas nuevas" body="cosas" href="cosas"></Card>
+            <Card imagen="https://alangzl.vercel.app/assets/img/project-1.png" titulo="Mi portafolio" leng="html,css"></Card>
         </div>
     </div>
 </section>
@@ -32,8 +32,12 @@ import Card from "../components/Card.astro";
     
     @media screen and (max-width: 768px){
         .info{
-            margin-top: 350px;
-        }
+        transform: translate(0, 0px);
+        position: relative;
+        top: 120px;
+        z-index: 1;
+    }
+    
         
     }
    

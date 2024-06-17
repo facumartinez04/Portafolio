@@ -1,24 +1,93 @@
 ---
 interface Props {
-	title: string;
-	body: string;
-	href: string;
+	imagen?: string;
+	titulo?: string;
+	github?: string;
+	body?: string;
+	href?: string;
+	leng?: string;
+	
 }
 
-const { href, title, body } = Astro.props;
----
+var lenguajes: string[] = [];
 
-<li class="link-card">
-	<a href={href}>
-		<h2>
-			{title}
-			<span>&rarr;</span>
-		</h2>
-		<p>
-			{body}
-		</p>
-	</a>
-</li>
-<style>
+const { href, titulo, body, imagen,github,leng } = Astro.props;
+
+
+if(leng){
+	lenguajes = leng.split(',');
+}
+
+let url: string = '';
+
+---
+<script>
+</script>
+
+<div class="carta">
 	
+	<h4>{titulo}</h4>
+	<img src={imagen} alt="">
+	<p class="py-3">Tecnologias Utilizadas:</p>
+	{
+		lenguajes.map((leng) => {
+				const url = `https://skillicons.dev/icons?i=${leng}`;
+				return (
+					<span class="tecnologia"><img class="tecnologia-iconos" src={url} alt={leng} />{leng}</span>
+				);
+			})
+	}
+
+</div>
+
+<style>
+
+	.carta-tecn{
+		display: flex;
+		height: 50px;
+		padding: 0px;
+		flex-wrap: wrap;
+	}
+
+	.carta{
+		width: 450px;
+		background-color: rgb(46, 46, 163);
+		border-radius: 15px;
+		color: #fff;	
+		padding: 25px;
+		border: 1px solid #fff;
+		height: ;
+		
+	}
+
+	h4{
+		font-weight: 555;
+		margin-bottom: 10px;
+	}
+	h5{
+		font-size: 20px;
+	}
+
+	.carta img{
+		width: 100%;
+		border-radius: 10px;
+		height: 150px;
+
+	}
+
+
+	.tecnologia{
+		background-color: #4a37b8;
+		padding: 8px;
+		border-radius: 10px;
+		height: 50px;
+	}
+	
+	.tecnologia img{
+		margin-right: 5px;
+	}
+	.tecnologia-iconos{
+		width: 20px !important;
+	}
+
 </style>
