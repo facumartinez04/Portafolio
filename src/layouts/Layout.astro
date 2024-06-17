@@ -24,28 +24,19 @@ const { title } = Astro.props;
 	</head>
 
 	<body>
-		
-	<div class="burbujas">
-		<div class="burbuja"></div>
-		<div class="burbuja"></div>
-		<div class="burbuja"></div>
-		<div class="burbuja"></div>
-		<div class="burbuja"></div>
-		<div class="burbuja"></div>
-		<div class="burbuja"></div>
-		<div class="burbuja"></div>
-
-	</div>
+	
 		<slot />
 	</body>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 </html>
-<style is:global>
+<style>
 	*{
-		margin: 0;
-		padding: 0;
-		box-sizing: border-box;
-	}
 
+		font-family: Montserrat,system-ui,-apple-system,sans-serif !important; 
+		margin: 0;
+		width: 100%;
+		background: rgb(21, 11, 116);
+		background: linear-gradient(90deg, rgb(22, 10, 129) 0%, rgba(24,42,142,1) 100%);
+	}
 </style>
