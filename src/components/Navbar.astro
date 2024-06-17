@@ -1,0 +1,98 @@
+
+      <nav class="navbar navbar-expand-lg bg-body-tertiary position-fixed w-100 mb-5">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Mi Portafolio</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navtransicion" aria-controls="navtransicion" aria-expanded="false" aria-label="Cambiar navigation">
+      
+            <span><i class="fas fa-bars"></i></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navtransicion">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#sobremi"><i class="fas fa-address-card"></i> Sobre Mi</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#proyectos"><i class="fas fa-tasks"></i> Proyectos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fas fa-sticky-note"></i> Mis Habilidades</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fas fa-inbox"></i> Contacto</a>
+              </li>
+            </ul>
+         
+          </div>
+        </div>
+      </nav>     
+
+
+
+<style>
+	.navbar{
+        height: 60px;
+        color: white;
+        background-color: rgb(62, 62, 221) !important;
+        
+    }
+
+    .fas {
+        display: none;
+    }
+
+
+    .navbar-brand{
+        font-weight: bold;
+        color: white;
+    }
+
+    .navbar-toggler-icon{
+        color:white !important;
+    }
+
+    .navbar-toggler{
+        color: #fff !important;
+        border: none;
+    }
+
+    .nav-link{
+        color: white !important;
+    }
+
+    .navbar-nav{
+        margin-left: auto;
+    }
+
+
+    @media screen and (max-width: 990px){
+        .fas {
+        display: initial;
+        }
+
+
+        .navbar-collapse {
+            position: fixed;
+            top: 60px;
+            left: 0;
+            overflow: hidden !important;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgb(24, 82, 240);
+            z-index: 1;
+            transition: none;
+            
+        }
+
+        .nav-item{
+            padding: 20px;        
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+            transition: 0.3s;
+        }
+
+        .nav-item:hover{
+            background-color: rgba(74, 90, 233, 0.897);
+        }
+
+        
+    }
+</style>
