@@ -24,23 +24,50 @@ let url: string = '';
 <script>
 </script>
 
-<div class="carta">
+<div class="carta d-flex jusitfy-content-center flex-column">
 	
 	<h4>{titulo}</h4>
 	<img src={imagen} alt="">
 	<p class="py-3">Tecnologias Utilizadas:</p>
-	{
-		lenguajes.map((leng) => {
-				const url = `https://skillicons.dev/icons?i=${leng}`;
-				return (
-					<span class="tecnologia"><img class="tecnologia-iconos" src={url} alt={leng} />{leng}</span>
-				);
-			})
-	}
+	<div class="carta-tecn">
+		{
+			lenguajes.map((leng) => {
+					const url = `https://skillicons.dev/icons?i=${leng}`;
+					return (
+						<div class="tecnologia"><span><img src={url} alt="" class="imagen-tec"/> {leng}</span></div>
+					);
+				})
+		}
+	</div>
+	<div class="botones-card">
+		<a href=""><button class="btns-card"><i class="fas fa-code"></i> Codigo</button></a>
+		<a href=""><button class="btns-card"><i class="fas fa-code"></i> Ver Pagina</button></a>
+		
 
+	</div>
 </div>
 
 <style>
+	 .botones-card {
+		margin-top: 70px;
+    }
+
+	.btns-card{
+		margin: 5px;
+		border: none;
+		padding: 8px;
+		border-radius: 50px;
+		transition: 0.3s;
+	}
+
+	.btns-card:hover{
+		transform: scale(1.08);
+	}
+
+	.imagen-tec{
+		width: 15px !important;
+		height: 15px !important;
+	}
 
 	.carta-tecn{
 		display: flex;
@@ -50,20 +77,22 @@ let url: string = '';
 	}
 
 	.carta{
-		width: 450px;
+		width: 350px;
 		background-color: rgb(46, 46, 163);
 		border-radius: 15px;
 		color: #fff;	
+		height: auto; 
+		margin: 10px;
 		padding: 25px;
 		border: 1px solid #fff;
-		height: ;
-		
+		cursor: pointer;
 	}
 
 	h4{
 		font-weight: 555;
 		margin-bottom: 10px;
 	}
+	
 	h5{
 		font-size: 20px;
 	}
@@ -72,7 +101,7 @@ let url: string = '';
 		width: 100%;
 		border-radius: 10px;
 		height: 150px;
-
+		margin-bottom: 5px;
 	}
 
 
@@ -80,14 +109,13 @@ let url: string = '';
 		background-color: #4a37b8;
 		padding: 8px;
 		border-radius: 10px;
-		height: 50px;
+		height: 40px;
+		margin: 3px;
 	}
 	
 	.tecnologia img{
 		margin-right: 5px;
 	}
-	.tecnologia-iconos{
-		width: 20px !important;
-	}
+
 
 </style>
