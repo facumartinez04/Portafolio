@@ -1,8 +1,8 @@
-<section class="arriba container vh-100 py-5 d-flex justify-content-center align-items-center" id="inicio">
+<section class="arriba container vh-100  py-5 d-flex justify-content-center align-items-center" id="inicio">
     <div class="row d-flex justify-content-center align-items-center text-center py-5">
-        <div class="col-12">
-            <img src="mifoto.jpg" class="img-fluid rounded-circle py-5 " alt="Facundo Martinez" style="width: auto; height: 300px;">
-        </div>
+
+        <img src="mifoto.jpg" class="mi-foto img-fluid rounded-circle py-5" alt="Facundo Martinez" style="width: auto; height: 300px;">
+
         <h1 class="py-2">Facundo Martinez</h1>
         <h3 class="py-2">Software Developer</h3>
         <h5 class="py-2 w-50">Espero compartir mi viaje por el mundo de la informática y que podamos trabajar juntos</h5>
@@ -19,7 +19,7 @@
 </section>
 
 <style>
- 
+   
     
     h1{
         font-size: 65px;
@@ -87,14 +87,12 @@
     .fas:hover{
         transform: scale(1.1);
     }
-    
-    @media screen and (max-width: 993px){
-        .arriba{
-        position: relative;
-        top: 50px;
-        transform: translate(0, -50px);
-        z-index: -1;
+
+    @media screen and (max-width: 768px){
+        .mi-foto{
+        margin-top: 80px;
         }
     }
+    
 
 </style>
