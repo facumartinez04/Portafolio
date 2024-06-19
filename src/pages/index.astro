@@ -3,21 +3,74 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Sobremi from './sobremi.astro';
 import Inicio from './Inicio.astro';
-
+import Pruebas from './pruebas.astro';
 ---
-<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-
 
 <Layout title="Bienvenidos a mi portafolio | Facu Martinez">
 	<Navbar />
 	<Inicio />
 	<Sobremi />
+	<Pruebas/>
+
+	<span class="subir"><i class="fas fa-arrow-up"></i></span>
 	
 	
 </Layout>
+
+<script>
+
+	window.onload = () =>{
+		setTimeout(() => {
+			
+			const subirtodo = document.querySelector('.subir');
+        
+					window.onscroll = () => {
+						if (window.scrollY > 300) {
+							subirtodo?.classList.add('subir-active');
+						} else {
+							subirtodo?.classList.remove('subir-active');
+						}
+					};
+
+				subirtodo?.addEventListener('click', () => {
+						window.scrollTo({
+							top: 0,
+							behavior: 'smooth'
+						});
+					});
+
+		}, 1000);
+	}
+	
+</script>
 
 <style>
 	body{
 		background: #3f29a0;
 	}
+
+	.subir{
+		z-index: 100;
+		position: fixed;
+		left: 98%;
+		top: 98%;
+		transform: translate(-98%, -98%);
+		font-size: 20px;
+		background-color: rgb(85, 73, 255);
+		padding: 8px ;
+		width: 45px;
+		height: 45px;
+		text-align: center;
+		border-radius: 100px;
+		color: white;
+		cursor: pointer;
+	}
+
+
+
+	.subir-active{
+		opacity: 100%;
+	}
+
+	
 </style>
