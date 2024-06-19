@@ -29,26 +29,31 @@
 
 </section>
 <script>
-    let navitem = document.querySelectorAll('.nav-item');
-    
-    navitem.forEach(nav => {
-        if (nav) {
-          nav.addEventListener('click', () => {
-              document.getElementsByClassName('collapse')[0].classList.remove('show');
-          });
-      }
-    });
+    window.onload = () =>{
+        setTimeout(() => {
+          let navitem = document.querySelectorAll('.nav-item');
+        
+        navitem.forEach(nav => {
+            if (nav) {
+              nav.addEventListener('click', () => {
+                  document.getElementsByClassName('collapse')[0].classList.remove('show');
+              });
+          }
+        });
 
 
-    const navbar = document.querySelector('.navbar');
-    window.onscroll = () => {
-        if (window.scrollY > 300) {
-            navbar?.classList.add('nav-active');
-        } else {
-            navbar?.classList.remove('nav-active');
-        }
-    };
+        const navbar = document.querySelector('.navbar');
+        
+        window.onscroll = () => {
+            if (window.scrollY > 300) {
+                navbar?.classList.add('nav-active');
+            } else {
+                navbar?.classList.remove('nav-active');
+            }
+        };
 
+      }, 1000)
+    }
 </script>
 
 <style>
