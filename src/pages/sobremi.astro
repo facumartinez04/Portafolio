@@ -1,71 +1,112 @@
-<section class=" vh-100 container d-flex justify-content-center align-items-center" id="sobremi">
 
-    <div class="info row  d-flex justify-content-center align-items-center flex-column text-center py-5">
-        <h1>SOBRE MI</h1>
-        <hr class="linea mt-3">
-        <h4 class="mt-3">A conocernos!</h4>
-        <div class="container d-flex">
-            <div class="texto-about-div d-flex justify-content-start align-items-center m-5 col-7">
-                <span class="texto-about">Mi nombre es Facundo, tengo 20 años y actualmente estoy estudiando Ingeneria en Sistemas. Mi expectativa es adquirir experiencia laboral en relacion a la carrera actualmente cursando, para lograr un mejor desarrollo en este campo y día a día ofrecer mejores trabajos y con una mayor calidad, para en un futuro formarme como profesional al 100% en lo que me apasiona desde chico.</span>
+<section class="container  py-5" id="sobremi">
+    <div class="vh-100 mt-5 d-flex justify-content-center align-items-start">
+        <div class="cosas row d-flex justify-content-center text-center align-items-center ">  
+            <h1 class="text-white">SOBRE MI</h1>
+            <hr class="linea">
+            
+            <div class="perfil d-flex justify-content-center row m-1">
+                <h2 class="text-white text-start m-3">PERFIL<hr class="linea"></h2>
+                <div class="col-sm-8">
+                    <span class="texto-about text-white fs-5">Mi nombre es Facundo, tengo 20 años y actualmente estoy estudiando Ingeneria en Sistemas. Mi expectativa es adquirir experiencia laboral en relacion a la carrera actualmente cursando, para lograr un mejor desarrollo en este campo y día a día ofrecer mejores trabajos y con una mayor calidad, para en un futuro formarme como profesional al 100% en lo que me apasiona desde chico.</span>
+    
+                </div>
+                <div class="imagen-ab col-4">
+                    <img class="imagen-about" src="https://alangzl.vercel.app/assets/img/about.svg" width="100%" alt="">
+    
+                </div>
             </div>
-            <div class="imagen-about-div m-3 col-4">
-                <img class="imagen-about" src="https://alangzl.vercel.app/assets/img/about.svg" alt="">
+            <div class="habilidades d-flex justify-content-center row m-2">
+                <h2 class="text-white text-start m-3">HABILIDADES<hr class="linea"></h2>
+                <div class="col-12 d-flex justify-content-center flex-wrap">
+                    <div class="img-lenguaje text-white">
+                        <h5 class="p-1">HTML</h5>
+                        <img src="https://skillicons.dev/icons?i=html" alt="">
+                    </div>
+                    <div class="img-lenguaje text-white">
+                        <h5 class="p-1">CSS</h5>
+                        <img src="https://skillicons.dev/icons?i=css" alt="">
+                    </div>
+                    <div class="img-lenguaje text-white">
+                        <h5 class="p-1">JS</h5>
+                        <img src="https://skillicons.dev/icons?i=js" alt="">
+                    </div>
+                    <div class="img-lenguaje text-white">
+                        <h5 class="p-1">REACT JS</h5>
+                        <img src="https://skillicons.dev/icons?i=react" alt="">
+                    </div>
+                    <div class="img-lenguaje text-white">
+                        <h5 class="p-1">Bootstrap</h5>
+                        <img src="https://skillicons.dev/icons?i=bootstrap" alt="">
+                    </div>
+                </div>
             </div>
+    
+            
         </div>
     </div>
+   
 </section>
 
 <style>
-
-
-    
-    h1{
-        font-size: 3rem;
-        color: #fff;
-    }
-
-    h4{
-        font-size: 1.5rem;
-        color: #fff;
-    }
-
     .linea{
         background-color: #fff;
         width: 150px;
         border: 4px solid #37b3ec;
     }
-    
-    .imagen-about{
-        width: 100%;
-        height: 100%;
-    }
-    
-    .texto-about{
-        color: #fff;
-        width: 100%;
-        font-size: 25px;
+
+    .img-lenguaje{
+        background-color: #382d9c;
+        padding: 10px;
+        width: 180px;
+        height: 180px;
+        border-radius: 10px;  
+        margin: 15px;
+        box-shadow: 0px 0px 18px 2px #a396fcbf;
+        -webkit-box-shadow: 0px 0px 18px 2px #a396fcbf;
+        -moz-box-shadow: 0px 0px 18px 2px rgba(41,18,184,0.75);
     }
 
-    @media (max-width: 993px){
-      
+    .img-lenguaje img{
+        height: 100px;
+    }
 
-        .imagen-about-div
-        {
+    .container{
+            position: relative;
+            margin-top: 65px;
+        }
+
+    @media screen and (max-width: 768px){
+
+        #sobremi{
+            margin-top: 150px;
+        }
+
+        .cosas{
+            margin-top: 50px;
+
+            width: 100% !important;
+        }
+
+
+        .container{
+            position: relative;
+            margin-top: 200px;
+        }
+        .imagen-ab{
             display: none;
         }
 
-        .texto-about-div{
-            width: 80%;
+        .texto-about{
+            width: 100% !important;
         }
+
+        .img-lenguaje{
+            width: 150px;
+            height: auto;
+        }
+      
+     
+
     }
-
-    @media screen and (max-width: 768px){
-        .info{
-        transform: translate(0, 0px);
-        position: relative;
-        top: 120px;
-        z-index: 1;
-    }}
-
-   
 </style>

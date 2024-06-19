@@ -1,0 +1,39 @@
+
+---
+import Card from "../components/Card.astro";
+import Proyecto from "../components/Proyecto.astro";
+---
+
+<section class="container d-flex text-center justify-content-center align-items-center mt-5" >
+    <div class="vh-100 d-flex justify-content-center align-items-center">
+        <div class="row d-flex justify-content-center">
+            <h1 class="py-3 text-white mt-5">PROYECTOS</h1>
+            <hr class="linea d-flex flex-wrap">
+            <div class="proyectos d-flex justify-content-center flex-wrap">
+                <Proyecto leng="net,css,html,js,jquery,bootstrap"></Proyecto>
+                <Proyecto leng="net,css,html,js,jquery,bootstrap"></Proyecto>
+                <Proyecto leng="net,css,html,js,jquery,bootstrap"></Proyecto>
+                <Proyecto leng="net,css,html,js,jquery,bootstrap"></Proyecto>
+                <Proyecto leng="net,css,html,js,jquery,bootstrap"></Proyecto>
+    
+            </div>
+    
+        </div>
+    </div>
+  
+</section>
+
+<style>
+    .linea{
+        background-color: #fff;
+        width: 150px;
+        border: 4px solid #37b3ec;
+    }
+
+    .container{
+        position: relative;
+        margin-top: 450px;
+    }
+
+
+</style>

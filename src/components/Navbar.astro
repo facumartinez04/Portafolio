@@ -29,15 +29,25 @@
 
 </section>
 <script>
-    let navbar = document.querySelectorAll('.nav-item');
+    let navitem = document.querySelectorAll('.nav-item');
     
-    navbar.forEach(nav => {
+    navitem.forEach(nav => {
         if (nav) {
           nav.addEventListener('click', () => {
               document.getElementsByClassName('collapse')[0].classList.remove('show');
           });
       }
     });
+
+
+    const navbar = document.querySelector('.navbar');
+    window.onscroll = () => {
+        if (window.scrollY > 300) {
+            navbar?.classList.add('nav-active');
+        } else {
+            navbar?.classList.remove('nav-active');
+        }
+    };
 
 </script>
 
@@ -46,8 +56,13 @@
        z-index: 2;
         height: 60px;
         color: white;
-        background-color: rgb(62, 62, 221) !important;
-        
+        background-color: transparent !important;
+        transition: 0.3s ease-in-out;
+    }
+
+    .collapse{
+      border: none;
+      box-shadow: none;
     }
 
     .fas {
@@ -60,21 +75,75 @@
         color: white;
     }
 
+    
+    .nav-active {
+        background-color: rgb(71, 71, 228) !important;
+        box-shadow: 5px -1px 12px -5px grey;
+        transition: 0.3s all !important;
+    }
+
+
+
+
     .navbar-toggler-icon{
         color:white !important;
+
     }
 
     .navbar-toggler{
         color: #fff !important;
-        border: none;
+        border: 1px solid transparent;
+        border-radius: 0px;
+
+    }
+
+    .navbar-toggler:hover{
+      border: 1px solid transparent;
+
     }
 
     .nav-link{
         color: white !important;
     }
 
+    .nav-item{
+        border-bottom: 2px solid transparent;
+        transition: 0.2s;
+    }
+
+    .nav-link:hover{
+        color: #b2b1ec !important;
+    }
+
+    .nav-item:hover{
+        animation: lineabajo 800ms;
+
+        border-bottom: 2px solid rgba(87, 96, 226, 0.87);
+    }
+
+    @keyframes lineabajo {
+    0% {
+        border-bottom: 2px solid transparent;
+        
+    }
+    100% {
+        
+        border-bottom: 2px solid rgba(87, 96, 226, 0.87);
+    }
+}
+
     .navbar-nav{
         margin-left: auto;
+    }
+
+    @media screen and (max-width: 768px){
+      
+      .navbar{
+        background-color: rgb(74, 85, 236) !important;
+      }
+      
+      
+
     }
 
 
@@ -82,19 +151,36 @@
         .fas {
         display: initial;
         }
+        
+        .collapse{
+          transition: 0.5s all ease-in-out ease-in;
+        }
+
+        .navbar-nav{
+          margin-top: 50px;
+          font-size: 20px;
+          display: flex;
+          justify-content: start;
+          align-items: center;
+        }
 
 
         .navbar-collapse {
             position: fixed;
+            border: none;
             top: 60px;
             left: 0;
             overflow: hidden !important;
-            width: 80vw;
+            width: 100vw;
             height: 100vh;
             background-color: rgb(24, 82, 240);
             z-index: 1;
-            transition: none;
-            
+            transition: 0.5s all ease-in-out ease-in;
+         
+        }
+        .navbar-collapse ul {
+       
+          height: 100vh;
         }
 
         .nav-item{

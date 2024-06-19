@@ -1,36 +1,27 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+
 import Navbar from '../components/Navbar.astro';
-import Inicio from './Inicio.astro';
 
 
 import Sobremi from './sobremi.astro';
-import Proyectos from './proyectos.astro';
+
+import Inicio from './inicio.astro';
+
 ---
 <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 
 
 <Layout title="Bienvenidos a mi portafolio | Facu Martinez">
+	<Navbar />
+	<Inicio />
+	<Sobremi />
 	
-	
-		<Navbar></Navbar>
-		<Inicio></Inicio>
-		<Sobremi></Sobremi>
-		<Proyectos></Proyectos>	
-
 	
 </Layout>
 
 <style>
-
-
-.animacion{
-	transform: translate(0, 0px);
-    position: relative;
-    top: 60px;
-	z-index: 1;
-}
-
-
+	body{
+		background: #3f29a0;
+	}
 </style>
