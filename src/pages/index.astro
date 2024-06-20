@@ -19,28 +19,27 @@ import Pruebas from './pruebas.astro';
 
 <script>
 
-	window.onload = () =>{
-		setTimeout(() => {
-			
-			const subirtodo = document.querySelector('.subir');
-        
-					window.onscroll = () => {
-						if (window.scrollY > 300) {
-							subirtodo?.classList.add('subir-active');
-						} else {
-							subirtodo?.classList.remove('subir-active');
-						}
-					};
+		const subirtodo = document.querySelector('.subir');
 
-				subirtodo?.addEventListener('click', () => {
-						window.scrollTo({
-							top: 0,
-							behavior: 'smooth'
-						});
-					});
+		console.log(subirtodo);
 
-		}, 1000);
-	}
+		window.addEventListener('scroll', () => {
+			if(window.scrollY > 500){
+				subirtodo?.classList.add('subir-active');
+			}else{
+				subirtodo?.classList.remove('subir-active');
+			}
+		});
+
+
+		subirtodo?.addEventListener('click', () => {
+			window.scrollTo({
+				top: 0,
+				behavior: 'smooth'
+			});
+		});
+		
+	
 	
 </script>
 
@@ -63,13 +62,15 @@ import Pruebas from './pruebas.astro';
 		text-align: center;
 		border-radius: 100px;
 		color: white;
+		display: none;
 		cursor: pointer;
+		transition: all 0.3s;
 	}
 
 
 
 	.subir-active{
-		opacity: 100%;
+		display: inherit !important;
 	}
 
 	
