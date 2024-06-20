@@ -36,7 +36,15 @@ let url: string = '';
 					);
 				})
 		}
+        
     </div>
+
+    <div class="botones-card mt-4">
+		<a href=""><button class="btns-card"><i class="fas fa-code"></i> Codigo</button></a>
+		<a href=""><button class="btns-card"><i class="fas fa-code"></i> Ver Pagina</button></a>
+		
+
+	</div>
 </div>  
 
 <style>
@@ -73,6 +81,24 @@ let url: string = '';
         padding: 3px 8px;
         border-radius: 20px;
     }
+
+    .btns-card{
+		margin: 5px;
+		border: none;
+		padding: 8px;
+		border-radius: 50px;
+		transition: 0.3s;
+        border: 1px solid transparent;
+	}
+
+	.btns-card:hover{
+		transform: scale(1.08);
+        border: 1px solid #fff  ;
+        box-shadow: 0px 0px 18px 2px #a396fcbf;
+        -webkit-box-shadow: 0px 0px 18px 2px #a396fcbf;
+        -moz-box-shadow: 0px 0px 18px 2px rgba(41,18,184,0.75);
+	}
+
 
     @media screen and (max-width: 768px){
         .carta{
