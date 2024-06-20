@@ -26,12 +26,101 @@
                       </div>
                 </div>
             </div>
+
+            <div class="col-10 d-flex justify-content-center align-items-center flex-column">
+                <div class="alert text-center d-flex justify-content-center align-items-center">
+                    <p class="text-center"></p>
+                </div>
+
             <button class="enviarCorreo">Enviar Correo</button>
         </div>
        
     </div>
    
 </section>
+
+<script>
+
+
+   
+
+
+    setTimeout(()=>{
+        document.querySelector('.enviarCorreo')?.addEventListener('click', function(){
+   
+        const nombreInput = document.querySelector<HTMLInputElement>('#nombre');
+        const asuntoInput = document.querySelector<HTMLInputElement>('#asunto');
+        const correoInput = document.querySelector<HTMLInputElement>('#correo');
+        const mensajeInput = document.querySelector<HTMLTextAreaElement>('#mensaje');
+        if (nombreInput && asuntoInput && correoInput && mensajeInput) {
+            const nombre: string = nombreInput.value;
+            const asunto: string = asuntoInput.value;
+            const correo: string = correoInput.value;
+            const mensaje: string = mensajeInput.value;
+            enviarCorreo(correo, asunto, mensaje);
+        }
+    })
+    },500)
+   
+
+    async function enviarCorreo(correo : any, asunto : any, mensaje : any) {
+        const response = await fetch('http://mandarmail.somee.com/api/correo' , {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                correo,
+                asunto,
+                mensaje
+            })
+
+        });
+
+        const data = await response.json();
+
+
+        
+
+
+        if(data.Data.enviado){
+
+
+            const nombreInput = document.querySelector<HTMLInputElement>('#nombre');
+            const asuntoInput = document.querySelector<HTMLInputElement>('#asunto');
+            const correoInput = document.querySelector<HTMLInputElement>('#correo');
+            const mensajeInput = document.querySelector<HTMLTextAreaElement>('#mensaje');
+
+            if (nombreInput && asuntoInput && correoInput && mensajeInput){
+                nombreInput.value = '';
+                asuntoInput.value = '';
+                correoInput.value = '';
+                mensajeInput.value = '';
+
+            }
+          
+            document.querySelector('.alert')?.classList.add('alert-success');
+            document.querySelector('.alert')?.classList.remove('alert-danger');
+            const alertElement = document.querySelector('.alert');
+            if (alertElement) {
+                alertElement.innerHTML = data.Data.mensaje;
+            }
+        }else{
+            document.querySelector('.alert')?.classList.add('alert-danger');
+            document.querySelector('.alert')?.classList.remove('alert-success');
+            const alertElement = document.querySelector('.alert');
+            if (alertElement) {
+                alertElement.innerHTML = data.Data.mensaje;
+            }
+        }
+
+        console.log(data);
+
+
+    }
+
+
+</script>
 
 <style>
 
