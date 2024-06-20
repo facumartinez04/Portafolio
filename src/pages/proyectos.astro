@@ -1,55 +1,42 @@
+
 ---
 import Card from "../components/Card.astro";
+import Proyecto from "../components/Proyecto.astro";
 ---
 
-<section class="info container vh-100 py-5  d-flex justify-content-center align-items-start" id="proyectos">
-    <div class=" row d-flex justify-content-center align-items-center flex-column text-center py-5">
-        <h1 class="">PROYECTOS</h1>
-        <hr class="linea mt-3">
-        <div class="col-12 m-2 d-flex justify-content-center align-items-center flex-wrap w-10">
-      
-                <Card titulo="Venta de Tickets" imagen="https://diegosoto.netlify.app/images/journal-app.webp" leng="net,css,html,js,jquery,bootstrap"></Card>
-                <Card titulo="Venta de Tickets" imagen="https://diegosoto.netlify.app/images/journal-app.webp" leng="net,css,html,js,jquery,bootstrap"></Card>
-                <Card titulo="Venta de Tickets" imagen="https://diegosoto.netlify.app/images/journal-app.webp" leng="net,css,html,js,jquery,bootstrap"></Card>
-                <Card titulo="Venta de Tickets" imagen="https://diegosoto.netlify.app/images/journal-app.webp" leng="net,css,html,js,jquery,bootstrap"></Card>
-                <Card titulo="Venta de Tickets" imagen="https://diegosoto.netlify.app/images/journal-app.webp" leng="net,css,html,js,jquery,bootstrap"></Card>
+<section class="container p-3" >
+    <div class="d-flex justify-content-center align-items-center text-center">
+        <div class="row d-flex justify-content-center mt-3"  id="proyectos">
+            <h1 class="py-3 text-white mt-5">PROYECTOS</h1>
+            <hr class="linea d-flex flex-wrap">
+            <div class="proyectos d-flex justify-content-center flex-wrap">
+                <Proyecto leng="net,css,html,js,jquery,bootstrap"></Proyecto>
+                <Proyecto leng="net,css,html,js,jquery,bootstrap"></Proyecto>
+                <Proyecto leng="net,css,html,js,jquery,bootstrap"></Proyecto>
+                <Proyecto leng="net,css,html,js,jquery,bootstrap"></Proyecto>
+                <Proyecto leng="net,css,html,js,jquery,bootstrap"></Proyecto>
+                <Proyecto leng="net,css,html,js,jquery,bootstrap"></Proyecto>
 
-
+            </div>
+    
         </div>
     </div>
+  
 </section>
 
 <style>
-    
-    h1{
-        font-size: 3rem;
-        color: #fff;
-    }
 
-    h4{
-        font-size: 1.5rem;
-        color: #fff;
-    }
-
+ 
     .linea{
         background-color: #fff;
         width: 150px;
         border: 4px solid #37b3ec;
     }
-    
+
     @media screen and (max-width: 768px){
-        .info{
-        transform: translate(0, 0px);
-        position: relative;
-        top: 120px;
-        z-index: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center ;
-    }
-    
-        
-    }
-   
+
+     
+}
+
+
 </style>
