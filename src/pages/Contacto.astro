@@ -42,6 +42,38 @@
 <script>
 
 
+    type HttpMethod = 'GET' | 'POST';
+
+
+    
+    function fetchDataWithDelay(url: string, delay: number, method: HttpMethod = 'GET', body?: any): Promise<any> {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const requestOptions: RequestInit = {
+                    method: method,
+                    headers: {
+                        'Content-Type': 'application/json' // Ajusta los headers según sea necesario
+                    },
+                    body: JSON.stringify(body) // Convierte el body a JSON si se proporciona
+                };
+
+                fetch(url, requestOptions)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        resolve(data);
+                    })
+                    .catch(error => {
+                        reject(error);
+                    });
+            }, delay);
+        });
+    }
+
    
 
 
@@ -61,31 +93,34 @@
         }
     })
     },500)
-   
+
+
+    var esActivo : Boolean = false;
+
 
     async function enviarCorreo(correo : any, asunto : any, mensaje : any) {
-        const response = await fetch('https://mandarmail.somee.com/api/correo' , {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                correo,
-                asunto,
-                mensaje
-            })
 
-        });
-
-        const data = await response.json();
+        if(esActivo) return ;
+        esActivo = true;
+            
+        const Bodydata : any = {
+            correo,
+            asunto,
+            mensaje
+        }
 
 
+        const response : any = await fetchDataWithDelay('https://mandarmail.somee.com/api/correo' , 500 , 'POST', Bodydata);
+
+
+        console.log(response)
+      
         
 
 
-        if(data.Data.enviado){
+        if(response.Data.enviado){
 
-
+            esActivo = false;
             const nombreInput = document.querySelector<HTMLInputElement>('#nombre');
             const asuntoInput = document.querySelector<HTMLInputElement>('#asunto');
             const correoInput = document.querySelector<HTMLInputElement>('#correo');
@@ -98,23 +133,23 @@
                 mensajeInput.value = '';
 
             }
-          
+            
             document.querySelector('.alert')?.classList.add('alert-success');
-            document.querySelector('.alert')?.classList.remove('alert-danger');
+             document.querySelector('.alert')?.classList.remove('alert-danger');
             const alertElement = document.querySelector('.alert');
             if (alertElement) {
-                alertElement.innerHTML = data.Data.mensaje;
+                alertElement.innerHTML = response.Data.mensaje;
             }
         }else{
             document.querySelector('.alert')?.classList.add('alert-danger');
             document.querySelector('.alert')?.classList.remove('alert-success');
             const alertElement = document.querySelector('.alert');
             if (alertElement) {
-                alertElement.innerHTML = data.Data.mensaje;
+                alertElement.innerHTML = response.Data.mensaje;
             }
+            esActivo = false;
         }
 
-        console.log(data);
 
 
     }
