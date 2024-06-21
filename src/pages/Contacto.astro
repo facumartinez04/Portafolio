@@ -5,36 +5,41 @@
         <hr class="linea">
         <div class="formulario col-10 p-5 rounded mt-3 text-white d-flex justify-content-center align-items-center flex-column ">
             <div class="col-10 d-flex justify-content-center flex-wrap">
-                <div class="col-5 m-4 w-100">
-                    <div class="mb-3">
-                        <label for="nombre" class="form-label fw-bold">Nombre de contacto:</label>
-                        <input type="email" class="form-control" id="nombre" aria-describedby="" placeholder="Ingresa el nombre de contacto">
-                    </div>
-                    <div class="mb-3">
-                        <label for="nombre" class="form-label fw-bold">Asunto:</label>
-                        <input type="email" class="form-control" id="asunto" aria-describedby="" placeholder="Ingresa el asunto de la presente">
-                    </div>
-                    <div class="mb-3">
-                        <label for="nombre" class="form-label fw-bold">Correo de contacto:</label>
-                        <input type="email" class="form-control" id="correo" aria-describedby="" placeholder="Ingresa el correo de contacto">
-                    </div>
-                </div>
-                <div class="col-5 m-4 w-100">
-                    <div class="mb-3">
-                        <label for="" class="form-label fw-bold">Mensaje:</label>
-                        <textarea class="form-control" id="mensaje" rows="8" placeholder="Ingresa un mensaje mas detallado a enviar"></textarea>
-                      </div>
-                </div>
-            </div>
+                <form class="col-10 d-flex justify-content-center flex-wrap">
 
-            <div class="col-10 d-flex justify-content-center align-items-center flex-column">
-                <div class="alert text-center d-flex justify-content-center align-items-center">
-                    <p class="text-center"></p>
-                </div>
+                    <div class="col-5 m-4 w-100">
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label fw-bold">Nombre de contacto:</label>
+                            <input type="email" class="form-control" id="nombre" aria-describedby="" placeholder="Ingresa el nombre de contacto" >
+                        </div>
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label fw-bold">Asunto:</label>
+                            <input type="email" class="form-control" id="asunto" aria-describedby="" placeholder="Ingresa el asunto de la presente" >
+                        </div>
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label fw-bold">Correo de contacto:</label>
+                            <input type="email" class="form-control" id="correo" aria-describedby="" placeholder="Ingresa el correo de contacto"  >
+                        </div>
+                    </div>
+                    <div class="col-5 m-4 w-100">
+                        <div class="mb-3">
+                            <label for="" class="form-label fw-bold">Mensaje:</label>
+                            <textarea class="form-control" id="mensaje" rows="8" placeholder="Ingresa un mensaje mas detallado a enviar"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-10 d-flex justify-content-center align-items-center flex-column">
+                        <div class="alert text-center d-flex justify-content-center align-items-center">
+                            <p class="text-center"></p>
+                        </div>
+                    </div>
+               
+                        <button class="enviarCorreo" type="submit">Enviar Correo</button>
+        
+                    </div>
+                </form>
+                
+            
 
-            <button class="enviarCorreo">Enviar Correo</button>
-        </div>
-       
     </div>
    
 </section>
@@ -52,9 +57,9 @@
                 const requestOptions: RequestInit = {
                     method: method,
                     headers: {
-                        'Content-Type': 'application/json' // Ajusta los headers según sea necesario
+                        'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify(body) // Convierte el body a JSON si se proporciona
+                    body: JSON.stringify(body) 
                 };
 
                 fetch(url, requestOptions)
@@ -79,16 +84,27 @@
 
     setTimeout(()=>{
         document.querySelector('.enviarCorreo')?.addEventListener('click', function(){
-   
+        event?.preventDefault();
+            
         const nombreInput = document.querySelector<HTMLInputElement>('#nombre');
         const asuntoInput = document.querySelector<HTMLInputElement>('#asunto');
         const correoInput = document.querySelector<HTMLInputElement>('#correo');
         const mensajeInput = document.querySelector<HTMLTextAreaElement>('#mensaje');
+
         if (nombreInput && asuntoInput && correoInput && mensajeInput) {
             const nombre: string = nombreInput.value;
             const asunto: string = asuntoInput.value;
             const correo: string = correoInput.value;
             const mensaje: string = mensajeInput.value;
+            if(nombre === '' || asunto === '' || correo === '' || mensaje === ''){
+                document.querySelector('.alert')?.classList.add('alert-info');
+                
+                const alertElement = document.querySelector('.alert');
+                if (alertElement) {
+                    alertElement.innerHTML = "Por favor, llena todos los campos";
+                }
+                return;
+            }
             enviarCorreo(correo, asunto, mensaje);
         }
     })
@@ -109,6 +125,14 @@
             mensaje
         }
 
+        document.querySelector('.alert')?.classList.add('alert-primary');
+        document.querySelector('.alert')?.classList.remove('alert-success');
+        document.querySelector('.alert')?.classList.remove('alert-danger');
+
+        const alertElement = document.querySelector('.alert');
+        if (alertElement) {
+            alertElement.innerHTML = "Enviando correo...";
+        }
 
         const response : any = await fetchDataWithDelay('https://mandarmail.somee.com/api/correo' , 500 , 'POST', Bodydata);
 
@@ -148,6 +172,17 @@
             esActivo = false;
         }
 
+
+        setTimeout(()=>{
+            document.querySelector('.alert')?.classList.remove('alert-success');
+            document.querySelector('.alert')?.classList.remove('alert-danger');
+            document.querySelector('.alert')?.classList.remove('alert-primary');
+            document.querySelector('.alert')?.classList.remove('alert-info');
+            const alertElement = document.querySelector('.alert');
+            if (alertElement) {
+                alertElement.innerHTML = '';
+            }
+        },5000  )
 
 
     }
